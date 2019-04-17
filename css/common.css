@@ -9,15 +9,16 @@
   box-sizing: border-box;
 }
 body{
-	background-color: #ffbdbd;
+	background-color: white;
 	margin: 0px;
-  font-family: monospace;
+  font-family: arial;
+  font-size: 16px;
 }
 
 .title{
 	font-size: 50px;
 	padding: 10px;
-  font-family: monospace;
+  font-family: arial;
 }
 /*
 	Estilo de la barra de navegacion
@@ -28,6 +29,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
 }
 li {
   float: left;
@@ -41,27 +43,69 @@ li a {
 }
 li a:hover {
   background-color: #111;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .column{
 	float: left;
 	width: 50%;
-
 }
-
 .row{
 	background-color: #c9c9ff;
 	text-align: center;
+  margin: 30px;
+  padding: 15px;
+  border-radius: 20px;
 }
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
+
 /*
-	Estilo del pie de pagina
+  COMMON BUTTON
 */
-.footer {
-  background-color: #F1F1F1;
+.common-button{
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 7px;
+  border-radius: 20px;
+  width: 100px;
+  border: 0px;
+  color: black;
+  font-size: 16px;
+}
+.common-button:hover{
+  background-color: #dbdbdb;
+  box-shadow: 0 7px 11px 0 rgba(0,0,0,0.4);
+  border: 1px;
+  border-color: #999999;
+}
+/*
+  SIGNUP BUTTON
+*/
+#signup-button{
+  display: inline-block;
+  padding: 12px;
+  width: 200px;
+}
+
+.form-card{
+  display: inline-block;
   text-align: center;
-  padding: 10px;
+  max-width: 700px;
+  background: #ffbdbd;
+  padding: 25px;
+  font-family: 'arial', arial;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.form {
+  width:100%;
+  padding: 4px;
+  border: 0px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  font-size: 14px;
 }

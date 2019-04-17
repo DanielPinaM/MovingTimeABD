@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="/MovingTimeABD/css/common.css">
 <meta charset="utf-8">
 <head>
   <title>Moving time</title>
@@ -8,7 +8,8 @@
 
 <body>
   <div class="container">
-    <?php require("includes/common/header.php")?>
+    <?php require("includes/header.php")?>
+
     <div class="row">
       <div class="title">
         Moving time
@@ -24,22 +25,24 @@
         }
       }
       ?>
-
     </div>
+
     <div class="row">
       <?php if (isset($_SESSION['login'])) {
         if(!$_SESSION['login']){
-          echo "<div class=\"column\"><a href=\"userSignup.php\" >User Signup</a></div>";
+          echo "<div><a class=\"common-button\" id=\"signup-button\" href=\"userSignup.php\">Signup</a></div>";
         }
       } ?>
     </div>
 
-    <h2>Login:</h2>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				  <p>Name: <input type="name" name="name" value=""></p>
-				  <p>Password: <input type="password" name="password" value=""></p>
-				  <input type="submit" name="submit" value="Submit">
-		  		</form>
+    <div class="row">
+  				<form class="form-card" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <h2>Login:</h2>
+  				  <p>Name: <input  class="form" type="name" name="name" value=""></p>
+  				  <p>Password: <input  class="form" type="password" name="password" value=""></p>
+  				  <input class="common-button" type="submit" name="submit" value="Submit">
+  		  	</form>
+    </div>
   </div>
 
 </body>
