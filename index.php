@@ -37,12 +37,12 @@
       ?>
     </div>
 
-    <div class="row">
+
       <?php
 				if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$name = test_input($_POST["name"]);
-					//$password = sha1(md5(test_input($_POST["password"])));
-          $password = test_input($_POST["password"]);
+					$password = sha1(md5(test_input($_POST["password"])));
+          //$password = test_input($_POST["password"]);
               //Error checking
               if (empty($password) || empty($name)) {
                   return "Error";
@@ -84,14 +84,21 @@
 				}
 			?>
 
-        <!-- HTML LOGIN -->
-  				<form class="form-card" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <h2>Login:</h2>
-  				  <p>Name: <input  class="form" type="name" name="name" value=""></p>
-  				  <p>Password: <input  class="form" type="password" name="password" value=""></p>
-  				  <input class="common-button" type="submit" name="submit" value="Submit">
-  		  	</form>
-    </div>
+      <?php
+        if(!$_SESSION['login']){
+          echo"
+          <div class=\"row\">
+              <!-- HTML LOGIN -->
+        				<form class=\"form-card\" method=\"post\" action= 'index.php'\">
+                  <h2>Login:</h2>
+        				  <p>Name: <input  class=\"form\" type=\"name\" name=\"name\" value=\"\"></p>
+        				  <p>Password: <input  class=\"form\" type=\"password\" name=\"password\" value=\"\"></p>
+        				  <input class=\"common-button\" type=\"submit\" name=\"submit\" value=\"Submit\">
+        		  	</form>
+          </div>";
+        }
+
+      ?>
   </div>
 
 </body>
