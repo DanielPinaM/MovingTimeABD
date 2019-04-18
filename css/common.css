@@ -43,7 +43,7 @@ li a {
 }
 li a:hover {
   background-color: #111;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
 }
 .column{
 	float: left;
@@ -55,6 +55,7 @@ li a:hover {
   margin: 30px;
   padding: 15px;
   border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .row:after {
   content: "";
