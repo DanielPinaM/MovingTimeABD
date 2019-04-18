@@ -8,8 +8,8 @@
 		<li><a class="button" href="">Following</a>
 		<?php
 			if($_SESSION['login']){
-				echo '<li style="float:right"><a id="inicio_sesion" class="button" href="/movingtimeabd/visuals/logout.php">Logout</a>';
-				echo '<li style="float:right"><a id="inicio_sesion" class="button" href="perfUser.php">Profile</a>';
+				echo '<li style="float:right"><a  class="button" href="/movingtimeabd/visuals/logout.php">Logout</a>';
+				echo '<li style="float:right"><a  class="button" href="/movingtimeabd/visuals/userProfile.php">Profile</a>';
 			}
 		?>
 	</ul>

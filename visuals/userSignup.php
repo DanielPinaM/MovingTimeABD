@@ -39,9 +39,9 @@
               //Si la consulta fuese tan correcta
               if (empty($user)){
                 //DAO Create element
-                $query="INSERT INTO user (name, password, phone, location, image) VALUES('$name' ,'$password', '$phone', '$location', 'img/user.jpg')";
+                $query="INSERT INTO user (name, password, phone, location, image) VALUES('$name' ,'$password', '$phone', '$location', 'user.jpg')";
                 $rs = $conn->query($query);
-                
+
                 if(!$rs){
                   echo "<br>".$conn->error."<br>";
                 }
