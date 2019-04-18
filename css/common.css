@@ -20,6 +20,7 @@ img{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+
 .title{
 	font-size: 50px;
 	padding: 10px;
@@ -30,8 +31,8 @@ img{
 */
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden;
   background-color: #333;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
@@ -102,6 +103,11 @@ li a:hover {
   width: 200px;
 }
 
+.div-button{
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
 .card{
   display: inline-block;
   text-align:center;
@@ -120,6 +126,7 @@ li a:hover {
   background: white;
   padding: 3px;
   width: 100%;
+  text-align: center;
 }
 
 .form-card{
@@ -134,6 +141,7 @@ li a:hover {
 }
 
 .form {
+  text-align: center;
   width:100%;
   padding: 4px;
   border: 0px;

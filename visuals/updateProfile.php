@@ -11,9 +11,10 @@
 
 	<?php require("../includes/header.php")?>
 
-	<?php 		//ACCESSING USER INFO
+	<?php  //GET USER INFO
 		if(isset($_SESSION['login']) && isset($_SESSION['name'])){
 				$name = $_SESSION['name'];
+        // ACCESS TO DB (SELECT)
         $app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 
@@ -29,25 +30,24 @@
 		}
 	?>
 
+	<?php
+		
+
+	?>
+
   <!-- HTML -->
 	<div class="row">
 		<div class="card">
-			<?php
-			echo '<img src= "/MovingTimeABD/img/'.$image.'" style="width:280px"></a>';
-      echo '<div class="littleObjects">';
-			echo '<p class ="bubble"> '.$name.'</p>';
-			echo '<p class ="bubble"> '.$phone.'</p>';
-			echo '<p class ="bubble"> '.$location.'</p>';
-      echo '</div>';
-			?>
+			<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+				<p>Name: <input class="form" type="text" name="nombre" value="<?php echo $name ?>"</p>
+				<p>Password: <input class="form" type="password" name="password" value=""></p>
+				<p>Phone: <input class="form" type="text" name="phone" value="<?php echo $phone ?>"></p>
+				<p>Location: <input class="form" type="text" name="location" value="<?php echo $location ?>"></p>
+				<p>Image: <input class="form" type="text" name="image" value="<?php echo $image ?>"></p>
+				<p><input class="common-button" type="submit" name="submit" value="Update"></p>
+		  </form>
 		</div>
 
-    <div class="div-button">
-		<?php
-		if($_SESSION['login'])
-			echo '<a class ="common-button" href="updateProfile.php" >Update my profile</a>';
-		?>
-    </div>
 	</div>
 
 </body>
