@@ -15,11 +15,18 @@ body{
   font-size: 16px;
 }
 
+h3 {
+  font-family: arial;
+  margin: 6px;
+  }
+h2 {font-family: arial;}
+
+a {text-decoration: none;}
+
 img{
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
 
 .title{
 	font-size: 50px;
@@ -120,6 +127,7 @@ li a:hover {
   display: inline-block;
   padding: 12px;
   width: 200px;
+  text-decoration: none;
 }
 
 .div-button{

@@ -31,7 +31,7 @@
           if (isset($_SESSION['name'])) {
             $id = $_SESSION['name'];
           }
-          echo "<h3>Welcome " . $_SESSION['name'] . "!</h3>";
+          echo "<h3 class='bubble'>Welcome " . $_SESSION['name'] . "!</h3>";
         }
       }
       ?>

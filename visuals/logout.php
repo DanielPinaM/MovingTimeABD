@@ -21,7 +21,7 @@ require_once ("../includes/config.php");
     </div>
 
 		<div class="row">
-			<h2>We will miss you. Come back later!</h2>
+			<h2 class="bubble">We will miss you. Come back later!</h2>
 		</div>
 
 </body>

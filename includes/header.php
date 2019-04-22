@@ -4,7 +4,7 @@
 		<li><a class="button" href="/movingtimeabd/index.php">Home</a>
 		<li><a class="button" href="">Moving companies</a>
 		<li><a class="button" href="">Comments</a>
-		<li><a class="button" href="">Contracs</a>
+		<li><a class="button" href="/movingtimeabd/visuals/contracts.php">Contracs</a>
 		<li><a class="button" href="/movingtimeabd/visuals/follows.php">Following</a>
 		<?php
 			if($_SESSION['login']){
