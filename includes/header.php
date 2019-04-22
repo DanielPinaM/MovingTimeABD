@@ -5,7 +5,7 @@
 		<li><a class="button" href="">Moving companies</a>
 		<li><a class="button" href="">Comments</a>
 		<li><a class="button" href="">Contracs</a>
-		<li><a class="button" href="">Following</a>
+		<li><a class="button" href="/movingtimeabd/visuals/follows.php">Following</a>
 		<?php
 			if($_SESSION['login']){
 				echo '<li style="float:right"><a  class="button" href="/movingtimeabd/visuals/logout.php">Logout</a>';
