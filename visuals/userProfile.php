@@ -27,6 +27,7 @@
         }
         else { echo"Can't find your user profile"; }
 		}
+
 	?>
 
   <!-- HTML -->
@@ -43,10 +44,16 @@
 		</div>
 
     <div class="div-button">
-		<?php
-		if($_SESSION['login'])
-			echo '<a class ="common-button" href="updateProfile.php" >Update my profile</a>';
-		?>
+				<?php
+					if($_SESSION['login'])
+						echo '<a class ="common-button" href="updateProfile.php" >Update my profile</a>';
+					?>
+		    </div>
+		<div class="div-button">
+				<?php
+					if($_SESSION['login'])
+						echo '<a class ="red-button" href="deleteProfile.php" >Delete me (warning)</a>';
+				?>
     </div>
 	</div>
 

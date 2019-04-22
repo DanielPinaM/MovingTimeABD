@@ -94,6 +94,25 @@ li a:hover {
   border: 1px;
   border-color: #999999;
 }
+
+.red-button{
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 7px;
+  border-radius: 20px;
+  width: 100px;
+  border: 0px;
+  color: red;
+  font-size: 14px;
+}
+
+.red-button:hover{
+  background-color: #333;
+  box-shadow: 0 7px 11px 0 rgba(0,0,0,0.4);
+  border: 1px;
+  border-color: #999999;
+}
+
 /*
   SIGNUP BUTTON
 */
