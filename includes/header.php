@@ -2,7 +2,7 @@
 <div>
 	<ul class="nav_bar">
 		<li><a class="button" href="/movingtimeabd/index.php">Home</a>
-		<li><a class="button" href="">Moving companies</a>
+		<li><a class="button" href="/movingtimeabd/visuals/companies.php">Moving companies</a>
 		<li><a class="button" href="/movingtimeabd/visuals/comments.php">Comments</a>
 		<li><a class="button" href="/movingtimeabd/visuals/contracts.php">Contracs</a>
 		<li><a class="button" href="/movingtimeabd/visuals/follows.php">Following</a>
