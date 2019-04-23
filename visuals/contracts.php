@@ -6,6 +6,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/common.css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Moving Time</title>
 </head>
 
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<title>Start On</title>
+	<title>Moving Time</title>
 	<meta charset="utf-8">
 </head>
 <body>
