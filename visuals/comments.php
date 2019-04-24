@@ -22,20 +22,24 @@
       $app = Aplicacion::getSingleton();
       $conn = $app->conexionBd();
 
+			if(isset($_POST['delete'])){
+				$commentToDelete = $_POST['delete'];
+				$sql = sprintf("DELETE FROM comment WHERE title = '$commentToDelete'");
+	      $res = $conn->query($sql);
+			}
+
       $sql = sprintf("SELECT * FROM comment WHERE userName = '$name' ORDER BY title");
       $res = $conn->query($sql);
 
       while($commentsList =  mysqli_fetch_assoc($res)){  /* Follows will be created and deleted from the companies list*/
-        $title = $commentsList["title"];
+        $commentTitle = $commentsList["title"];
         echo  '<div class="row">';
           echo '<div class= "card">';
             echo ' <h3 class="bubble"> '. $commentsList["title"] .'</h3>';
             echo ' <p class="bubble"> '. $commentsList["content"] .'</p>';
-            echo '<input class="red-button" type="submit" name="deleteComment" value="Delete" />';
-            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deleteComment'])) { //TODO
-              echo $title;
-              $sql = sprintf("DELETE FROM comment WHERE title = '$title'");
-              $res = $conn->query($sql); }
+						echo '<form action="comments.php" method="post">';
+            	echo '<button class="red-button" type="submit" name="delete" value="'.$commentTitle.'">Delete</button>';
+						echo '</form>';
           echo'</div>';
         echo'</div>';
       }

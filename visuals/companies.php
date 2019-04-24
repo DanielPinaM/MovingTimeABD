@@ -12,17 +12,36 @@
 <body>
   <?php require("../includes/header.php")?>
 
-
 	<?php
       $app = Aplicacion::getSingleton();
       $conn = $app->conexionBd();
 
+			if(isset($_POST['follow'])){
+				$companyToFollow = $_POST['follow'];
+				if(isset($_SESSION['login']) && isset($_SESSION['name'])){
+						$name = $_SESSION['name'];
+						$query="INSERT INTO follow(companyName, userName) VALUES('$companyToFollow' ,'$name')";
+						$rs = $conn->query($query);
+					}
+			}
+
+			if(isset($_POST['contract'])){
+				$companyToContract = $_POST['contract'];
+				if(isset($_SESSION['login']) && isset($_SESSION['name'])){
+						$name = $_SESSION['name'];
+						
+
+						$query="INSERT INTO follow(companyName, userName) VALUES('$companyToFollow' ,'$name')";
+						$rs = $conn->query($query);
+					}
+			}
+
       $sql = sprintf("SELECT * FROM company ORDER BY name");
       $res = $conn->query($sql);
 
-      echo  '<div class="row">';
+			echo  '<div class="row">';
       while($companiesList =  mysqli_fetch_assoc($res)){  /* Follows will be created and deleted from the companies list*/
-        //$companyname = $companiesList["name"];
+        $companyName = $companiesList["name"];
 
           echo '<div class= "card">';
             echo '<img src= "/MovingTimeABD/img/'.$companiesList["image"].'" style="width:180px"></img>';
@@ -30,11 +49,16 @@
             echo '<p class="bubble">'. $companiesList["phone"] .'</p>';
             echo '<p class="bubble">'. $companiesList["location"] .'</p>';
             echo '<p class="bubble">'. $companiesList["price"] .' €</p>';
-            //echo '<button class"common-button" onclick=follow('.$companyName.')>Contract</button>'
+						echo '<form action="companies.php" method="post">';
+            	echo '<button class="common-button" type="submit" name="follow" value="'.$companyName.'">Follow</button>';
+						echo '</form>';
+						echo '<form action="companies.php" method="post">';
+							echo '<p>Date: <input  class="form" type="date" name="date" value=""></p>';
+            	echo '<button class="red-button" type="submit" name="contract" value="'.$companyName.'">Contract</button>';
+						echo '</form>';
           echo'</div>';
-
       }
-      echo'</div>';
+			echo'</div>';
 
     ?>
 
