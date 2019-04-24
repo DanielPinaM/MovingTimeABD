@@ -10,17 +10,16 @@
 </head>
 
 <body>
-  <?php require("../includes/header.php")?>
+  <?php require("../includes/header.php");
 
-  <div class="row">
-    <a class="common-button" href="createComment.php"> Create a comment </a>
-  </div>
-
-	<?php
   if(isset($_SESSION['login']) && isset($_SESSION['name'])){
       $name = $_SESSION['name'];
       $app = Aplicacion::getSingleton();
       $conn = $app->conexionBd();
+
+			echo '<div class="row">';
+		    echo '<a class="common-button" href="createComment.php"> Create a comment </a>';
+		  echo '</div>';
 
 			if(isset($_POST['delete'])){
 				$commentToDelete = $_POST['delete'];

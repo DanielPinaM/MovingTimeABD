@@ -29,10 +29,16 @@
 				$companyToContract = $_POST['contract'];
 				if(isset($_SESSION['login']) && isset($_SESSION['name'])){
 						$name = $_SESSION['name'];
-						
+						$contractDate = $_POST['date'];
 
-						$query="INSERT INTO follow(companyName, userName) VALUES('$companyToFollow' ,'$name')";
+						$sql = sprintf("SELECT price FROM company WHERE name = '$companyToContract'");
+			      $res = $conn->query($sql);
+						$contractPrice =  mysqli_fetch_array($res);
+						$contractPrice = $contractPrice[0];
+
+						$query = "INSERT INTO contract (companyName, userName, date, price) VALUES('$companyToContract' ,'$name', '$contractDate', '$contractPrice')";
 						$rs = $conn->query($query);
+						if($rs == true){ echo "<script>alert('Contract created')</script>"; }
 					}
 			}
 
@@ -49,13 +55,15 @@
             echo '<p class="bubble">'. $companiesList["phone"] .'</p>';
             echo '<p class="bubble">'. $companiesList["location"] .'</p>';
             echo '<p class="bubble">'. $companiesList["price"] .' €</p>';
+						if(isset($_SESSION['login']) && isset($_SESSION['name'])){
 						echo '<form action="companies.php" method="post">';
-            	echo '<button class="common-button" type="submit" name="follow" value="'.$companyName.'">Follow</button>';
+            	echo '<button class="common-button" id="follow-button" type="submit" name="follow" value="'.$companyName.'">Follow</button>';
 						echo '</form>';
 						echo '<form action="companies.php" method="post">';
 							echo '<p>Date: <input  class="form" type="date" name="date" value=""></p>';
             	echo '<button class="red-button" type="submit" name="contract" value="'.$companyName.'">Contract</button>';
 						echo '</form>';
+					}
           echo'</div>';
       }
 			echo'</div>';
