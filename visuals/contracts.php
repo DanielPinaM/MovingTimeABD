@@ -32,7 +32,7 @@
 
       $sql = sprintf("SELECT * FROM contract WHERE userName = '$name' ORDER BY date");
       $res = $conn->query($sql);
-			if(!empty(mysqli_fetch_array($res))){
+			//if(mysql_num_rows($res) == 0){
 		      while($contractsList =  mysqli_fetch_assoc($res)){  /* Follows will be created and deleted from the companies list*/
 							$companyName = $contractsList["companyName"];
 							$contractDate = $contractsList["date"];
@@ -46,10 +46,10 @@
 								echo '</form>';
 		          echo'</div>';
 		      }
-			}
+		/*	}
 			else{
 				echo '<h2>You do not have any contracts yet.</h2>';
-			}
+			}*/
 
 		}
     else{
