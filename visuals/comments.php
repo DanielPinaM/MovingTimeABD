@@ -1,5 +1,7 @@
 
-<?php require_once ("../includes/config.php"); ?>
+use MongoDB\BSON\ObjectId;
+<?php require_once ("../includes/mongoConexion.php");
+session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +16,9 @@
 
   if(isset($_SESSION['login']) && isset($_SESSION['name'])){
       $name = $_SESSION['name'];
-      $app = Aplicacion::getSingleton();
-      $conn = $app->conexionBd();
+      /*$app = Aplicacion::getSingleton();
+      $conn = $app->conexionBd();*/
+			$db = conectar();
 
 			echo '<div class="row">';
 		    echo '<a class="common-button" href="createComment.php"> Create a comment </a>';
@@ -23,21 +26,23 @@
 
 			if(isset($_POST['delete'])){
 				$commentToDelete = $_POST['delete'];
-				$sql = sprintf("DELETE FROM comment WHERE title = '$commentToDelete'");
-	      $res = $conn->query($sql);
+				$table = $db->commentsDB->comments;
+				$table->deleteOne(["_id"=>new MongoDB\BSON\ObjectId("$commentToDelete")]);
 			}
 
-      $sql = sprintf("SELECT * FROM comment WHERE userName = '$name' ORDER BY title");
-      $res = $conn->query($sql);
+      /*$sql = sprintf("SELECT * FROM comment WHERE userName = '$name' ORDER BY title");
+      $res = $conn->query($sql);*/
+			$commentList = $db->commentsDB->comments;
+			$value = $commentList->find();
 
-      while($commentsList =  mysqli_fetch_assoc($res)){  /* Follows will be created and deleted from the companies list*/
-        $commentTitle = $commentsList["title"];
+      foreach($value as $document){  /* Follows will be created and deleted from the companies list*/
         echo  '<div class="row">';
           echo '<div class= "card">';
-            echo ' <h3 class="bubble"> '. $commentsList["title"] .'</h3>';
-            echo ' <p class="bubble"> '. $commentsList["content"] .'</p>';
+            echo ' <h3 class="bubble"> '. $document["title"] .'</h3>';
+            echo ' <p class="bubble"> '. $document["content"] .'</p>';
+						$mongoId = $document["_id"];
 						echo '<form action="comments.php" method="post">';
-            	echo '<button class="red-button" type="submit" name="delete" value="'.$commentTitle.'">Delete</button>';
+            	echo '<button class="red-button" type="submit" name="delete" value="'.$mongoId.'">Delete</button>';
 						echo '</form>';
           echo'</div>';
         echo'</div>';

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php require_once ("../includes/config.php"); ?>
+<?php require_once ("../includes/mongoConexion.php");
+session_start(); ?>
 
 <html>
 <head>
@@ -24,24 +25,21 @@
             }
             else{
               //Getting user from DB
-              $app = Aplicacion::getSingleton();
-              $conn = $app->conexionBd();
+              /*$app = Aplicacion::getSingleton();
+              $conn = $app->conexionBd();*/
+							$db = conectar();
 
               //Searching by name
-              $sql = sprintf("SELECT * FROM comments WHERE name = '$name' AND title = '$title'");
-              $res = $conn->query($sql);
+              /*$sql = sprintf("SELECT * FROM comments WHERE name = '$name' AND title = '$title'");
+              $res = $conn->query($sql);*/
               //Si la consulta fuese tan correcta
               if (empty($res)){
-                //DAO Create element
-                $query="INSERT INTO comment (userName, title, content) VALUES('$name' ,'$title', '$content')";
-                $rs = $conn->query($query);
-
-                if(!$rs){
-                  echo "<br>".$conn->error."<br>";
-                }
-                else{
-                  header( "Location: comments.php" );
-                }
+                /*$query="INSERT INTO comment (userName, title, content) VALUES('$name' ,'$title', '$content')";
+                $rs = $conn->query($query);*/
+								$table = $db->commentsDB->comments;
+								$document = array(
+								"name"=>$name, "title"=>$title, "content"=>$content);
+								$table->insertOne($document);
               }  else { echo "Oops sorry! Looks like that title is already taken."; }
             }
         } //IF CREATE ELEMENT
