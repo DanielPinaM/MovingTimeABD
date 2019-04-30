@@ -38,12 +38,15 @@ session_start(); ?>
       foreach($value as $document){  /* Follows will be created and deleted from the companies list*/
         echo  '<div class="row">';
           echo '<div class= "card">';
+						echo '<p> '.$document["name"].'</p>';
             echo ' <h3 class="bubble"> '. $document["title"] .'</h3>';
             echo ' <p class="bubble"> '. $document["content"] .'</p>';
 						$mongoId = $document["_id"];
-						echo '<form action="comments.php" method="post">';
-            	echo '<button class="red-button" type="submit" name="delete" value="'.$mongoId.'">Delete</button>';
-						echo '</form>';
+						if($document["name"] == $name){
+							echo '<form action="comments.php" method="post">';
+	            	echo '<button class="red-button" type="submit" name="delete" value="'.$mongoId.'">Delete</button>';
+							echo '</form>';
+						}
           echo'</div>';
         echo'</div>';
       }
